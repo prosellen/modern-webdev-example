@@ -30,6 +30,15 @@
     "prefer-const": "warn",
     "@typescript-eslint/ban-ts-comment": "warn",
     "no-param-reassign": ["error", { "props": false }],
+    "import/no-extraneous-dependencies":[
+      "error",
+      {
+         "devDependencies":[
+            "**/*.test.ts",
+            "**/*.test.tsx"
+         ]
+      }
+    ]
   },
   "ignorePatterns": ["vite.config.ts"]
 }

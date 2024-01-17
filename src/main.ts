@@ -1,24 +1,35 @@
 import './style.css';
-import typescriptLogo from './typescript.svg';
-import viteLogo from './images/vite.svg';
-import setupCounter from './counter';
+import preCalculateOrderTotal from './preCalculateOrderTotal';
+
+const someProducts = [
+  {
+    Quantity: 51,
+    PricePerUnitHT: 42.41,
+    Weight: 10.2,
+  },
+  {
+    Quantity: 13,
+    PricePerUnitHT: 12.39,
+    Weight: 15.2,
+  },
+  {
+    Quantity: 2,
+    PricePerUnitHT: 4.2,
+    Weight: 18.18,
+  },
+];
+
+const totals = preCalculateOrderTotal(someProducts);
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
+    <h1>Vite + Vitest + TypeScript</h1>
+    <p>
     <div class="card">
-      <button id="counter" type="button"></button>
+      <p>Array of product objects:
+      <pre><code>${JSON.stringify(someProducts, undefined, 2)}</code></pre></p>
+      <p>Pre-calculated order total:
+      <pre><code>${JSON.stringify(totals, undefined, 2)}</code></pre></p>
     </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
   </div>
 `;
-
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!);
