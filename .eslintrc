@@ -20,10 +20,9 @@
   "rules": {
     "prettier/prettier": "warn",
     "eqeqeq": [
-      "warn",
+      "error",
       "smart"
     ],
-    "no-debugger": "warn",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-non-null-asserted-optional-chain": "warn",
     "no-empty": "warn",
